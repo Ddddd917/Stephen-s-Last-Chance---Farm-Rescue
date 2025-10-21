@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Farm Rescue - Save your grandfather's farm by earning $5,000 in 10 days">
+    <title>Farm Rescue - Stephen's Last Chance</title>
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/farm.css">
+    <link rel="stylesheet" href="css/shop.css">
+</head>
+<body>
+
+<!-- ================================================================== -->
+<!-- MAIN GAME CONTAINER -->
+<!-- All game screens are contained here -->
+<!-- ================================================================== -->
+<div id="game-container">
+
+    <!-- ============================================================== -->
+    <!-- GLOBAL HEADER (shown on all screens except victory/defeat) -->
+    <!-- ============================================================== -->
+    <header id="game-header">
+        <div class="header-left">
+            <h1>🚜 Farm Rescue</h1>
+        </div>
+
+        <div class="header-center">
+            <!-- Current Day Display -->
+            <div class="stat-display">
+                <span class="stat-label">Day:</span>
+                <span id="day-display" class="stat-value">1</span>
+                <span class="stat-sublabel">of 10</span>
+            </div>
+
+            <!-- Days Remaining Display -->
+            <div class="stat-display">
+                <span class="stat-label">Days Left:</span>
+                <span id="days-remaining" class="stat-value">10</span>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <!-- Money Display -->
+            <div class="money-display">
+                <span class="money-label">💰</span>
+                <span id="money-display" class="money-value">$50</span>
+            </div>
+
+            <!-- Goal Progress -->
+            <div class="goal-display">
+                <span class="goal-label">Goal:</span>
+                <span id="goal-progress" class="goal-value">$50 / $5,000</span>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- ============================================================== -->
+    <!-- HOME SCREEN -->
+    <!-- Main menu with story and weather forecast -->
+    <!-- ============================================================== -->
+    <div id="home-screen" class="screen active">
+        <div class="screen-content">
+
+            <!-- Story Section -->
+            <section class="story-section">
+                <h2>📖 Your Mission</h2>
+                <div class="story-box">
+                    <p>
+                        Stephen has inherited his grandfather's farm, but it's <strong>$5,000 in debt</strong>!
+                        The bank has given him <strong>10 days</strong> to pay it back or lose the farm forever.
+                    </p>
+                    <p>
+                        With only <strong>$50</strong> in his pocket, Stephen must work day and night growing crops
+                        and raising animals. Two of his grandfather's old friends—Tom (seed merchant) and
+                        Henry (livestock trader)—have agreed to help.
+                    </p>
+                    <p class="story-highlight">
+                        🌧️ The weather affects market prices! Worse weather = Higher demand = Better selling prices!
+                    </p>
+                </div>
+            </section>
+
+            <!-- Weather Forecast Section -->
+            <section class="weather-section">
+                <h2>🌤️ 7-Day Weather Forecast</h2>
+                <div id="weather-forecast" class="weather-forecast-container">
+                    <!-- Weather cards will be dynamically inserted here -->
+                </div>
+                <div class="weather-legend">
+                    <p><strong>Strategy Tip:</strong> Wait for bad weather (🌧️⛈️) to sell for up to 2x prices!</p>
+                </div>
+            </section>
+
+            <!-- Navigation Buttons -->
+            <div class="button-group">
+                <button id="btn-go-to-farm" class="btn btn-primary btn-large">
+                    🌾 Go to Farm
+                </button>
+                <button id="btn-go-to-tom-shop" class="btn btn-secondary">
+                    🌱 Tom's Seed Shop
+                </button>
+                <button id="btn-go-to-henry-shop" class="btn btn-secondary">
+                    🐄 Henry's Animal Farm
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- FARM SCREEN -->
+    <!-- Player's farm with crops and animals -->
+    <!-- ============================================================== -->
+    <div id="farm-screen" class="screen">
+        <div class="screen-content">
+
+            <div class="screen-header">
+                <h2>🌾 Your Farm</h2>
+                <button id="btn-farm-to-home" class="btn btn-back">← Back to Home</button>
+            </div>
+
+            <!-- Current Weather Display -->
+            <div class="current-weather-display">
+                <div class="weather-info">
+                    <span class="weather-icon" id="current-weather-icon">☀️</span>
+                    <span class="weather-desc" id="current-weather-desc">Good Weather</span>
+                </div>
+                <div class="demand-info">
+                    <span class="demand-label">Market Demand:</span>
+                    <span class="demand-value" id="demand-index">1.0x</span>
+                </div>
+                <div class="sell-recommendation" id="sell-recommendation">
+                    ➡️ Normal prices
+                </div>
+            </div>
+
+            <!-- Crop Section -->
+            <section class="farm-section">
+                <div class="section-header">
+                    <h3>🌱 Crop Plots</h3>
+                    <span class="slot-info">
+                            <span id="crop-slots-used">0</span> / <span id="crop-slots-total">10</span> plots used
+                        </span>
+                </div>
+                <div id="crop-plots" class="farm-grid">
+                    <!-- Crop cards will be dynamically inserted here -->
+                    <div class="empty-slot">
+                        <p>No crops planted</p>
+                        <button class="btn btn-small" onclick="navigateToShop('tom')">Buy Seeds</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Animal Section -->
+            <section class="farm-section">
+                <div class="section-header">
+                    <h3>🐄 Animal Pens</h3>
+                    <span class="slot-info">
+                            <span id="animal-slots-used">0</span> / <span id="animal-slots-total">5</span> pens used
+                        </span>
+                </div>
+                <div id="animal-pens" class="farm-grid">
+                    <!-- Animal cards will be dynamically inserted here -->
+                    <div class="empty-slot">
+                        <p>No animals on farm</p>
+                        <button class="btn btn-small" onclick="navigateToShop('henry')">Buy Animals</button>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- TOM'S SEED SHOP SCREEN -->
+    <!-- Buy seeds and sell harvested crops -->
+    <!-- ============================================================== -->
+    <div id="tom-shop-screen" class="screen">
+        <div class="screen-content">
+
+            <div class="screen-header">
+                <h2>🌱 Tom's Seed Shop</h2>
+                <button id="btn-tom-to-home" class="btn btn-back">← Back to Home</button>
+            </div>
+
+            <!-- Shop Greeting -->
+            <div class="shop-greeting">
+                <p>
+                    <strong>Tom:</strong> "Welcome! Fresh seeds at fixed prices.
+                    I'll buy back your harvests at today's market rate."
+                </p>
+                <div class="current-demand">
+                    Current Demand: <span id="tom-demand-display">1.0x</span>
+                </div>
+            </div>
+
+            <!-- Buy Seeds Section -->
+            <section class="shop-section">
+                <h3>💰 Buy Seeds</h3>
+                <div id="tom-shop-inventory" class="shop-grid">
+                    <!-- Seed cards will be dynamically inserted here -->
+                </div>
+            </section>
+
+            <!-- Sell Crops Section -->
+            <section class="shop-section">
+                <h3>💵 Sell Harvested Crops</h3>
+                <div id="player-crop-inventory" class="shop-grid">
+                    <!-- Player's harvested crops will be dynamically inserted here -->
+                    <div class="empty-inventory">
+                        <p>No crops to sell yet</p>
+                        <p class="hint">Harvest crops from your farm first!</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- HENRY'S ANIMAL SHOP SCREEN -->
+    <!-- Buy animals and sell mature animals -->
+    <!-- ============================================================== -->
+    <div id="henry-shop-screen" class="screen">
+        <div class="screen-content">
+
+            <div class="screen-header">
+                <h2>🐄 Henry's Animal Farm</h2>
+                <button id="btn-henry-to-home" class="btn btn-back">← Back to Home</button>
+            </div>
+
+            <!-- Shop Greeting -->
+            <div class="shop-greeting">
+                <p>
+                    <strong>Henry:</strong> "Quality livestock for sale!
+                    I'll pay top dollar for your mature animals based on current demand."
+                </p>
+                <div class="current-demand">
+                    Current Demand: <span id="henry-demand-display">1.0x</span>
+                </div>
+            </div>
+
+            <!-- Buy Animals Section -->
+            <section class="shop-section">
+                <h3>💰 Buy Animals</h3>
+                <div id="henry-shop-inventory" class="shop-grid">
+                    <!-- Animal cards will be dynamically inserted here -->
+                </div>
+            </section>
+
+            <!-- Sell Animals Section -->
+            <section class="shop-section">
+                <h3>💵 Sell Mature Animals</h3>
+                <div id="player-animal-inventory" class="shop-grid">
+                    <!-- Player's mature animals will be dynamically inserted here -->
+                    <div class="empty-inventory">
+                        <p>No animals to sell yet</p>
+                        <p class="hint">Raise animals on your farm first!</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- VICTORY SCREEN -->
+    <!-- Shown when player wins -->
+    <!-- ============================================================== -->
+    <div id="victory-screen" class="screen end-screen">
+        <div class="screen-content centered">
+
+            <div class="end-screen-header victory">
+                <h1>🎉 CONGRATULATIONS! 🎉</h1>
+                <h2>You Saved the Farm!</h2>
+            </div>
+
+            <div class="end-screen-message">
+                <p>
+                    Stephen's grandfather would be proud! With your help, the farm is saved
+                    and will prosper for generations to come.
+                </p>
+            </div>
+
+            <!-- Statistics Display -->
+            <div class="statistics-display" id="victory-statistics">
+                <!-- Statistics will be dynamically inserted here -->
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-group">
+                <button id="btn-play-again-victory" class="btn btn-primary btn-large">
+                    🎮 Play Again
+                </button>
+                <button id="btn-main-menu-victory" class="btn btn-secondary">
+                    🏠 Main Menu
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- DEFEAT SCREEN -->
+    <!-- Shown when player loses -->
+    <!-- ============================================================== -->
+    <div id="defeat-screen" class="screen end-screen">
+        <div class="screen-content centered">
+
+            <div class="end-screen-header defeat">
+                <h1>💔 GAME OVER 💔</h1>
+                <h2>The Farm Has Been Foreclosed</h2>
+            </div>
+
+            <div class="end-screen-message">
+                <p>
+                    Unfortunately, the bank has taken the farm. But don't give up!
+                    Learn from this attempt and try again with better strategy.
+                </p>
+                <p class="hint">
+                    <strong>💡 Tips:</strong> Check the weather forecast and sell during bad weather
+                    for up to 2x prices. Focus on fast crops early, then invest in animals for breeding bonuses!
+                </p>
+            </div>
+
+            <!-- Statistics Display -->
+            <div class="statistics-display" id="defeat-statistics">
+                <!-- Statistics will be dynamically inserted here -->
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-group">
+                <button id="btn-try-again-defeat" class="btn btn-primary btn-large">
+                    🔄 Try Again
+                </button>
+                <button id="btn-main-menu-defeat" class="btn btn-secondary">
+                    🏠 Main Menu
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ================================================================== -->
+<!-- NOTIFICATION CONTAINER -->
+<!-- For displaying temporary messages -->
+<!-- ================================================================== -->
+<div id="notification-container" class="notification-container">
+    <!-- Notifications will be dynamically inserted here -->
+</div>
+
+
+<!-- ================================================================== -->
+<!-- JAVASCRIPT FILES -->
+<!-- Load in correct order: utilities → models → managers → main -->
+<!-- ================================================================== -->
+
+<!-- Configuration and Utilities (no dependencies) -->
+<script src="js/config.js"></script>
+<script src="js/utils/constants.js"></script>
+<script src="js/utils/helpers.js"></script>
+
+<!-- Models (depend on config and utilities) -->
+<script src="js/model/Weather.js"></script>
+<script src="js/model/Crop.js"></script>
+<script src="js/model/Animal.js"></script>
+<script src="js/model/GameState.js"></script>
+
+<!-- Managers (depend on models) -->
+<script src="js/managers/UIManager.js"></script>
+<script src="js/managers/TimerManager.js"></script>
+<script src="js/managers/FarmManager.js"></script>
+<script src="js/managers/ShopManager.js"></script>
+
+<!-- Main application entry point (depends on everything) -->
+<script src="js/main.js"></script>
+
+</body>
+</html>

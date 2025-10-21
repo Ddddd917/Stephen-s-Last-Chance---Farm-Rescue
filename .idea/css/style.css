@@ -1,0 +1,1014 @@
+/**
+ * ============================================================================
+ * FILE: style.css
+ * PURPOSE: Main stylesheet for Farm Rescue game
+ *
+ * DESCRIPTION:
+ * This file contains all core styles including:
+ * - CSS Reset and base styles
+ * - Layout and grid systems
+ * - Typography
+ * - Color scheme
+ * - Buttons and interactive elements
+ * - Screen management
+ * - Header and navigation
+ * - Cards and containers
+ * - Notifications
+ * - Responsive design
+ *
+ * DEPENDENCIES: None
+ * USED BY: index.html
+ * ============================================================================
+ */
+
+/* ========================================================================== */
+/* CSS RESET & BASE STYLES */
+/* ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Color Palette */
+    --primary-color: #2ecc71;        /* Green - positive actions */
+    --primary-dark: #27ae60;
+    --primary-light: #a8e6cf;
+
+    --secondary-color: #3498db;      /* Blue - neutral info */
+    --secondary-dark: #2980b9;
+    --secondary-light: #85c1e9;
+
+    --danger-color: #e74c3c;         /* Red - warnings */
+    --danger-dark: #c0392b;
+
+    --warning-color: #f39c12;        /* Orange - caution */
+    --warning-dark: #e67e22;
+
+    --success-color: #27ae60;        /* Dark green - achievements */
+
+    --background-color: #ecf0f1;     /* Light gray - backgrounds */
+    --card-background: #ffffff;
+    --text-color: #2c3e50;           /* Dark gray - text */
+    --text-light: #7f8c8d;
+    --border-color: #bdc3c7;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-md);
+}
+
+/* ========================================================================== */
+/* MAIN GAME CONTAINER */
+/* ========================================================================== */
+
+#game-container {
+    width: 100%;
+    max-width: 1200px;
+    background: var(--background-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+/* ========================================================================== */
+/* HEADER */
+/* ========================================================================== */
+
+#game-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    padding: var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-md);
+}
+
+.header-left h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.header-center {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.stat-display {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+}
+
+.stat-label {
+    display: block;
+    font-size: 12px;
+    opacity: 0.9;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.stat-sublabel {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: flex-end;
+}
+
+.money-display {
+    background: rgba(255, 255, 255, 0.3);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.money-value {
+    color: #f1c40f;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.goal-display {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.goal-label {
+    margin-right: var(--spacing-xs);
+}
+
+.goal-value {
+    font-weight: bold;
+}
+
+/* ========================================================================== */
+/* SCREEN MANAGEMENT */
+/* ========================================================================== */
+
+.screen {
+    display: none;
+    padding: var(--spacing-xl);
+    min-height: 600px;
+    animation: fadeIn var(--transition-normal);
+}
+
+.screen.active {
+    display: block;
+}
+
+.screen-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.screen-content.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.screen-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.screen-header h2 {
+    font-size: 32px;
+    color: var(--text-color);
+}
+
+/* ========================================================================== */
+/* ANIMATIONS */
+/* ========================================================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+.pulse {
+    animation: pulse 1s infinite;
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+/* ========================================================================== */
+/* BUTTONS */
+/* ========================================================================== */
+
+.btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: var(--secondary-dark);
+}
+
+.btn-danger {
+    background: var(--danger-color);
+    color: white;
+}
+
+.btn-danger:hover {
+    background: var(--danger-dark);
+}
+
+.btn-success {
+    background: var(--success-color);
+    color: white;
+}
+
+.btn-warning {
+    background: var(--warning-color);
+    color: white;
+}
+
+.btn-back {
+    background: var(--text-light);
+    color: white;
+}
+
+.btn-small {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 14px;
+}
+
+.btn-large {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    font-size: 20px;
+}
+
+.button-group {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--spacing-lg);
+}
+
+/* ========================================================================== */
+/* SECTIONS */
+/* ========================================================================== */
+
+section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.section-header h3 {
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+.slot-info {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+/* ========================================================================== */
+/* STORY SECTION (HOME SCREEN) */
+/* ========================================================================== */
+
+.story-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.story-section h2 {
+    font-size: 28px;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.story-box {
+    background: var(--card-background);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--primary-color);
+}
+
+.story-box p {
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    font-size: 16px;
+}
+
+.story-box p:last-child {
+    margin-bottom: 0;
+}
+
+.story-highlight {
+    background: linear-gradient(135deg, var(--warning-color), var(--warning-dark));
+    color: white;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ========================================================================== */
+/* WEATHER SECTION (HOME SCREEN) */
+/* ========================================================================== */
+
+.weather-section h2 {
+    font-size: 28px;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.weather-forecast-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.weather-card {
+    background: var(--card-background);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.weather-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.weather-card.today {
+    border: 2px solid var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+.weather-day {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-xs);
+}
+
+.weather-icon {
+    font-size: 36px;
+    display: block;
+    margin: var(--spacing-sm) 0;
+}
+
+.weather-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.weather-demand {
+    font-size: 16px;
+    font-weight: bold;
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-sm);
+    margin-top: var(--spacing-xs);
+}
+
+.demand-good {
+    background: var(--success-color);
+    color: white;
+}
+
+.demand-great {
+    background: var(--warning-color);
+    color: white;
+}
+
+.demand-best {
+    background: var(--danger-color);
+    color: white;
+    animation: pulse 1s infinite;
+}
+
+.demand-poor {
+    background: var(--border-color);
+    color: var(--text-color);
+}
+
+.weather-legend {
+    background: var(--card-background);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-size: 14px;
+}
+
+.weather-legend strong {
+    color: var(--primary-color);
+}
+
+/* ========================================================================== */
+/* CURRENT WEATHER DISPLAY (FARM SCREEN) */
+/* ========================================================================== */
+
+.current-weather-display {
+    background: var(--card-background);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.current-weather-display .weather-icon {
+    font-size: 48px;
+}
+
+.weather-desc {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.demand-info {
+    text-align: center;
+}
+
+.demand-label {
+    display: block;
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-xs);
+}
+
+.demand-value {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--danger-color);
+}
+
+.sell-recommendation {
+    padding: var(--spacing-md);
+    background: var(--primary-light);
+    border-radius: var(--radius-md);
+    font-weight: bold;
+    color: var(--text-color);
+    text-align: center;
+}
+
+/* ========================================================================== */
+/* GRIDS (FARM & SHOP) */
+/* ========================================================================== */
+
+.farm-grid,
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.empty-slot,
+.empty-inventory {
+    background: var(--card-background);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    color: var(--text-light);
+    grid-column: 1 / -1;
+}
+
+.empty-slot p,
+.empty-inventory p {
+    margin-bottom: var(--spacing-md);
+}
+
+.empty-inventory .hint {
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* ========================================================================== */
+/* CARDS (ITEMS) */
+/* ========================================================================== */
+
+.item-card {
+    background: var(--card-background);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-md);
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.item-tier {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    font-size: 12px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    background: var(--warning-color);
+    color: white;
+    font-weight: bold;
+}
+
+.item-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.item-info {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-sm);
+}
+
+.item-info strong {
+    color: var(--text-color);
+}
+
+.item-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: var(--spacing-sm) 0;
+}
+
+.item-price.sell-price {
+    color: var(--success-color);
+}
+
+.price-comparison {
+    font-size: 12px;
+    color: var(--text-light);
+    text-decoration: line-through;
+    margin-right: var(--spacing-xs);
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background: var(--border-color);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    margin: var(--spacing-sm) 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+    transition: width var(--transition-normal);
+    border-radius: var(--radius-sm);
+}
+
+.progress-text {
+    font-size: 12px;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: var(--spacing-xs);
+}
+
+.item-status {
+    font-size: 14px;
+    font-weight: bold;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    margin: var(--spacing-sm) 0;
+}
+
+.status-growing {
+    background: var(--warning-color);
+    color: white;
+}
+
+.status-mature {
+    background: var(--success-color);
+    color: white;
+    animation: pulse 1s infinite;
+}
+
+.breeding-info {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: var(--spacing-xs);
+    font-style: italic;
+}
+
+.offspring-badge {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: var(--spacing-xs);
+}
+
+/* ========================================================================== */
+/* SHOP GREETING */
+/* ========================================================================== */
+
+.shop-greeting {
+    background: var(--card-background);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-xl);
+    border-left: 4px solid var(--secondary-color);
+}
+
+.shop-greeting p {
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.shop-greeting p:last-child {
+    margin-bottom: 0;
+}
+
+.current-demand {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-color);
+    text-align: center;
+    padding: var(--spacing-sm);
+    background: var(--primary-light);
+    border-radius: var(--radius-md);
+}
+
+/* ========================================================================== */
+/* END SCREENS (VICTORY/DEFEAT) */
+/* ========================================================================== */
+
+.end-screen {
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+}
+
+.end-screen-header {
+    margin-bottom: var(--spacing-xl);
+}
+
+.end-screen-header h1 {
+    font-size: 48px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.end-screen-header h2 {
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.end-screen-header.victory h1 {
+    color: var(--success-color);
+}
+
+.end-screen-header.defeat h1 {
+    color: var(--danger-color);
+}
+
+.end-screen-message {
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+.end-screen-message p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.end-screen-message .hint {
+    background: var(--primary-light);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: 16px;
+}
+
+.statistics-display {
+    background: var(--card-background);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+    width: 100%;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+}
+
+.stat-name {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.stat-value-display {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* ========================================================================== */
+/* NOTIFICATIONS */
+/* ========================================================================== */
+
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.notification {
+    background: var(--card-background);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    min-width: 300px;
+    animation: slideIn 0.3s ease;
+    position: relative;
+    border-left: 4px solid var(--primary-color);
+}
+
+.notification.success {
+    border-left-color: var(--success-color);
+}
+
+.notification.warning {
+    border-left-color: var(--warning-color);
+}
+
+.notification.danger {
+    border-left-color: var(--danger-color);
+}
+
+.notification-message {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ========================================================================== */
+/* RESPONSIVE DESIGN */
+/* ========================================================================== */
+
+@media (max-width: 768px) {
+    #game-header {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .header-left,
+    .header-center,
+    .header-right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header-right {
+        align-items: center;
+    }
+
+    .screen {
+        padding: var(--spacing-md);
+    }
+
+    .screen-header {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .weather-forecast-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .farm-grid,
+    .shop-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group .btn {
+        width: 100%;
+    }
+
+    .notification-container {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+    }
+
+    .notification {
+        min-width: auto;
+        width: 100%;
+    }
+}
+
+/* ========================================================================== */
+/* UTILITY CLASSES */
+/* ========================================================================== */
+
+.hidden {
+    display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-success {
+    color: var(--success-color);
+}
+
+.text-danger {
+    color: var(--danger-color);
+}
+
+.text-warning {
+    color: var(--warning-color);
+}
+
+.text-muted {
+    color: var(--text-light);
+}
+
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }

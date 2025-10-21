@@ -121,7 +121,7 @@ Operates "Henry's Animal Farm" where Stephen can:
 
 **Key Tip**: Watch the weather forecast and wait for bad weather (< 0.40) before selling!
 
-### Mid Game (Days 4-7) - Goal: $2,500-$4,000
+### Middle Game (Days 4-7) - Goal: $2,500-$4,000
 **Strategy**: Diversify and leverage breeding
 - Mix crops (Wheat, Carrot, Corn)
 - Invest in animals (Chicken, Rabbit)
