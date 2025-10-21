@@ -2,7 +2,7 @@
 
 A strategic farm management simulation game where players race against time to save their grandfather's farm from foreclosure.
 
-[![Game Status](https://img.shields.io/badge/GroupB--yellow)]()
+[![Game Status](https://img.shields.io/badge/Group-B-yellow)]()
 [![COMPSCI](https://img.shields.io/badge/COMPSCI2023-SucceedInCS-green)]()
 [![University](https://img.shields.io/badge/University-Glasgow-blue)]()
 
