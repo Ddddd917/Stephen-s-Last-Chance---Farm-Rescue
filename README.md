@@ -2,9 +2,9 @@
 
 A strategic farm management simulation game where players race against time to save their grandfather's farm from foreclosure.
 
-[![Game Status](https://img.shields.io/badge/status-in%20development-yellow)]()
-[![License](https://img.shields.io/badge/license-MIT-blue)]()
-[![University](https://img.shields.io/badge/university-Manchester-red)]()
+[![Game Status](https://img.shields.io/badge/GroupB--yellow)]()
+[![COMPSCI](https://img.shields.io/badge/COMPSCI2023-SucceedInCS-green)]()
+[![University](https://img.shields.io/badge/University-Glasgow-blue)]()
 
 ---
 
@@ -246,11 +246,6 @@ cd farm-rescue
 # Or use a local server (recommended)
 ```
 
-### Using Live Server (VS Code)
-1. Install "Live Server" extension
-2. Right-click `index.html`
-3. Select "Open with Live Server"
-
 ### Using WebStorm
 1. Open project folder in WebStorm
 2. Right-click `index.html`
@@ -258,135 +253,38 @@ cd farm-rescue
 
 ---
 
-## 📅 Development Timeline
-
-### Week 7-8: Core Mechanics
-- [x] Project setup and repository creation
-- [ ] Basic farm interface
-- [ ] Crop planting and harvesting system
-- [ ] Shop interfaces (Tom & Henry)
-- [ ] Fixed-price buying system
-- [ ] Day advancement system
-
-### Week 8-9: Economy & Weather
-- [ ] Weather generation system
-- [ ] Demand index calculations
-- [ ] Dynamic pricing implementation
-- [ ] 7-day forecast display
-- [ ] Goal tracking UI
-
-### Week 9: Animals & Polish
-- [ ] Animal purchase and growth
-- [ ] Breeding mechanics
-- [ ] Milestone notifications
-- [ ] Victory/defeat screens
-- [ ] Story introduction
-- [ ] Bug testing and balancing
-
-### Week 9 End: Submission
-- [ ] Final testing
-- [ ] Record 5-minute demo video
-- [ ] Submit on Moodle
-
----
-
-## 🎥 Demo Video Requirements
-
-The 5-minute video must demonstrate:
-1. ✅ Story introduction (Stephen's situation)
-2. ✅ Starting state ($50, Day 1)
-3. ✅ Buying and planting crops
-4. ✅ Weather impact on prices
-5. ✅ Animal breeding mechanics
-6. ✅ Strategic selling during bad weather
-7. ✅ Day progression
-8. ✅ Either victory or defeat screen
-9. ✅ Each team member speaking about their role
-
----
-
 ## 👥 Team & Roles
 
 | Role | Responsibilities | Team Member |
 |------|------------------|-------------|
-| **Secretary** | Schedule meetings, record minutes, submit documentation | TBD |
-| **Submission Coordinator** | Manage deadlines, compile final submission | TBD |
-| **Software Dev Coordinator** | Oversee code integration, resolve conflicts | TBD |
-| **Game Design Lead** | Coordinate design decisions, manage assets | TBD |
-| **Team Lead** | Facilitate meetings, ensure task completion | TBD |
+| **Secretary** | Schedule meetings, record minutes, submit documentation | Nomin Erdene Gantulga |
+| **Submission Coordinator** | Manage deadlines, compile final submission | Alae Athamena |
+| **Software Dev Coordinator** | Oversee code integration, resolve conflicts | Kunter Cetin |
+| **Game Design Lead** | Coordinate design decisions, manage assets | Xufei Cao |
+| **Team Lead** | Facilitate meetings, ensure task completion | Minghao Dai |
 
 ---
 
-## 📝 Meeting Minutes
 
-Meeting minutes are tracked in the `docs/meetings/` folder:
-- Week 4 meeting minutes
-- Week 6 meeting minutes
-- Week 8 meeting minutes
 
----
 
-## 🐛 Known Issues
-
-*To be updated as development progresses*
-
----
-
-## 🔮 Future Enhancements (Post-Submission)
-
-If we had more time, we could add:
-- 🎵 Background music and sound effects
-- 🎨 Animated sprites and transitions
-- 🏆 Achievement system
-- 📈 Statistics and leaderboards
-- 🌍 Multiple difficulty levels
-- 💾 Cloud save system
-- 📱 Mobile responsive design
-
----
-
-## 📚 Resources & References
-
-### Learning Materials
-- [MDN Web Docs](https://developer.mozilla.org/) - HTML/CSS/JavaScript reference
-- [W3Schools](https://www.w3schools.com/) - Web development tutorials
-- [JavaScript.info](https://javascript.info/) - Modern JavaScript tutorial
-
-### Game Design
-- [Game Design Document Template](docs/game-design-document.md)
-- Weather-economy system inspired by farming simulation games
-- Breeding mechanics based on probability theory
-
-### Tools
-- [WebStorm IDE](https://www.jetbrains.com/webstorm/)
-- [GitHub Desktop](https://desktop.github.com/)
-- [Git Documentation](https://git-scm.com/doc)
-
----
 
 ## 📄 License
 
-This project is created for educational purposes as part of COMPSCI2023 coursework at the University of Manchester.
+This project is created for educational purposes as part of COMPSCI2023 coursework at the University of Glasgow.
 
 ---
 
 ## 🙏 Acknowledgments
 
 - **Course**: COMPSCI2023 - Succeeding in University Study in Computing Science
-- **University**: University of Manchester
-- **Semester**: Autumn 2024
-- **Submission Date**: Friday, 28th November 2024, 5:00 PM
+- **University**: University of Glasgow
+- **Semester**: Fall 2025
 
 Special thanks to:
-- Course instructors for project guidance
+- Course instructors(Stephen Lindsay) for project guidance
 - Team members for collaboration
 - Grandfather for the farm (in-game) 🚜
-
----
-
-## 📧 Contact
-
-For questions about this project, please post in the **MS Teams SUCCEED Groupwork channel**.
 
 ---
 
@@ -400,20 +298,5 @@ For questions about this project, please post in the **MS Teams SUCCEED Groupwor
 5. Check weather forecast before selling
 6. Aim to reach $5,000 before Day 10!
 
-### For Developers
-1. Clone the repository
-2. Open in WebStorm
-3. Check the Game Design Document in `docs/`
-4. Review current tasks in Issues tab
-5. Create a feature branch for your work
-6. Submit pull requests for review
-
----
-
-**Game Status**: 🚧 In Development  
-**Target Completion**: Week 9, November 2024  
-**Current Version**: 0.1.0 (Pre-Alpha)
-
----
 
 *Save the farm, save the legacy! 🌾*
