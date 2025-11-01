@@ -721,3 +721,65 @@
         transform: translateY(-5px);
     }
 }
+
+/* ============================================
+   种子和年幼动物的特殊样式
+   ============================================ */
+
+.farm-section-header {
+    width: 100%;
+    margin: 20px 0 10px 0;
+    padding: 10px 15px;
+    background-color: #f0f4f8;
+    border-left: 4px solid #4CAF50;
+    border-radius: 4px;
+}
+
+.farm-section-header h4 {
+    margin: 0 0 5px 0;
+    color: #2c3e50;
+    font-size: 1.1em;
+}
+
+.farm-section-header .hint {
+    margin: 0;
+    font-size: 0.9em;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* 种子卡片样式 */
+.seed-card,
+.young-animal-card {
+    border: 2px dashed #9b59b6 !important;
+    background-color: #f8f4ff;
+}
+
+.status-badge.seed,
+.status-badge.young {
+    background-color: #9b59b6;
+}
+
+/* 种植/放置按钮 */
+.btn-plant,
+.btn-place {
+    background-color: #27ae60;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-plant:hover,
+.btn-place:hover {
+    background-color: #229954;
+}
+
+.btn-plant:disabled,
+.btn-place:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}

@@ -106,6 +106,7 @@ class Animal {
         // Store animal type and properties from config
         this.type = animalDef.id;
         this.name = animalDef.name;
+        this.emoji = animalDef.emoji;
         this.purchaseCost = animalDef.purchaseCost;
         this.baseSellPrice = animalDef.baseSellPrice;
         this.growthTime = animalDef.growthTime; // in minutes

@@ -1,8 +1,8 @@
-# Happy Farming - Game Design Document
+# Stephen's last chance - Game Design Document
 
 ## 1. Game Overview
 
-**Game Title:** Happy Farming  
+**Game Title:** Stephen's last chance  
 **Genre:** Farm Management Simulation  
 **Platform:** Web Browser  
 **Target Audience:** Casual players who enjoy resource management and strategy games  

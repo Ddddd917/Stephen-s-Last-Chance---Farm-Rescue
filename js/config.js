@@ -85,6 +85,7 @@ const GAME_CONFIG = {
         {
             id: 'wheat',
             name: 'Wheat',
+            emoji: '🌾',
             seedCost: 10,              // Cheapest seed - accessible at game start
             growthTime: 2,             // Fastest growth - only 2 minutes
             baseSellPrice: 18,         // Base price before weather multiplier
@@ -94,6 +95,7 @@ const GAME_CONFIG = {
         {
             id: 'carrot',
             name: 'Carrot',
+            emoji: '🥕',
             seedCost: 30,              // Affordable after a few wheat harvests
             growthTime: 3,             // 3 minutes to mature
             baseSellPrice: 60,         // 100% profit margin
@@ -103,6 +105,7 @@ const GAME_CONFIG = {
         {
             id: 'corn',
             name: 'Corn',
+            emoji: '🌽',
             seedCost: 70,              // Mid-tier investment
             growthTime: 4,             // 4 minutes to mature
             baseSellPrice: 150,        // 114% profit margin
@@ -112,6 +115,7 @@ const GAME_CONFIG = {
         {
             id: 'strawberry',
             name: 'Strawberry',
+            emoji: '🍓',
             seedCost: 150,             // Expensive seed requiring capital
             growthTime: 5,             // 5 minutes to mature
             baseSellPrice: 350,        // 133% profit margin
@@ -121,6 +125,7 @@ const GAME_CONFIG = {
         {
             id: 'watermelon',
             name: 'Watermelon',
+            emoji: '🍉',
             seedCost: 300,             // Most expensive seed
             growthTime: 7,             // Longest growth time
             baseSellPrice: 750,        // 150% profit margin - best in game
@@ -165,6 +170,7 @@ const GAME_CONFIG = {
         {
             id: 'chicken',
             name: 'Chicken',
+            emoji: '🐔',
             purchaseCost: 40,          // Cheapest animal - accessible early
             growthTime: 3,             // 3 minutes to mature
             baseSellPrice: 75,         // 88% profit margin
@@ -176,6 +182,7 @@ const GAME_CONFIG = {
         {
             id: 'rabbit',
             name: 'Rabbit',
+            emoji: '🐰',
             purchaseCost: 100,         // Affordable after early crops
             growthTime: 4,             // 4 minutes to mature
             baseSellPrice: 200,        // 100% profit margin
@@ -187,6 +194,7 @@ const GAME_CONFIG = {
         {
             id: 'sheep',
             name: 'Sheep',
+            emoji: '🐑',
             purchaseCost: 220,         // Mid-tier investment
             growthTime: 5,             // 5 minutes to mature
             baseSellPrice: 480,        // 118% profit margin
@@ -198,6 +206,7 @@ const GAME_CONFIG = {
         {
             id: 'pig',
             name: 'Pig',
+            emoji: '🐷',
             purchaseCost: 450,         // Expensive animal
             growthTime: 6,             // 6 minutes to mature
             baseSellPrice: 1050,       // 133% profit margin
@@ -209,6 +218,7 @@ const GAME_CONFIG = {
         {
             id: 'cow',
             name: 'Cow',
+            emoji: '🐮',
             purchaseCost: 900,         // Most expensive animal
             growthTime: 8,             // Longest growth time
             baseSellPrice: 2250,       // 150% profit margin - matches watermelon

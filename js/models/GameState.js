@@ -1315,3 +1315,7 @@ class GameState {
  *
  * ============================================================================
  */
+
+// Make GameState available globally (helps when script/module load order varies)
+console.log('GameState.js loaded — attaching GameState to window');
+window.GameState = window.GameState || GameState;

@@ -90,6 +90,7 @@ class Crop {
         // Store crop type and properties from config
         this.type = cropDef.id;
         this.name = cropDef.name;
+        this.emoji = cropDef.emoji;
         this.seedCost = cropDef.seedCost;
         this.baseSellPrice = cropDef.baseSellPrice;
         this.growthTime = cropDef.growthTime; // in minutes
